@@ -25,7 +25,7 @@ feature 'Task lists' do
     expect(page).to have_link("Create Task List")
     click_on "Create Task List"
     expect(page).to have_css("#new_task_lists")
-    fill_in "Name", with: "My Other Task"
+    fill_in "Title", with: "My Other Task"
     click_on "Create Task List"
     expect(page).to have_content("Task List was created")
     expect(page).to have_content("My Other Task")
@@ -35,7 +35,7 @@ feature 'Task lists' do
     create_user email: "user@example.com"
     login_user
     click_on "Create Task List"
-    fill_in "Name", with: ""
+    fill_in "Title", with: ""
     click_on "Create Task List"
     expect(page).to have_css("#new_task_lists")
     expect(page).to have_content("Your task list could not be created")
