@@ -1,0 +1,33 @@
+<div id="new_tasks">
+
+<h1><%=@task_list.name%></h1>
+
+
+    <%@task.errors.each_with_index  do |message, i|%>
+      <li><%=message[1]%></li>
+    <%end%>
+
+    <%= form_for @task do |f|%>
+    <div>
+      <%=f.hidden_field :task_list_id%>
+    </div>
+
+
+      <div>
+        <%=f.label :description%>
+        <%=f.text_field :description%>
+      </div>
+      <div>
+        <%=f.label :due_date%>
+        <%=select_date Date.today, prefix: :due_date%>
+      </div>
+      <div>
+        <%=f.submit%>
+      </div>
+    <%end%>
+
+
+
+
+
+</div>

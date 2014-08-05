@@ -53,5 +53,14 @@ feature 'Task lists' do
     expect(page).to have_content("Work Things")
   end
 
+  scenario "User can add a new task from a link on the index page" do
+    create_user email: "user@example.com"
+    TaskList.create!(name: "Work List")
+    login_user
+    click_on "New Task"
+    expect(page).to have_css("#new_tasks")
+    expect(page).to have_content("Work List")
+  end
+
 
 end

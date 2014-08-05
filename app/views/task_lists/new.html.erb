@@ -1,10 +1,10 @@
 <div id="new_task_lists">
 
-  <%@new_task.errors.each_with_index  do |message, i|%>
+  <%@task_list.errors.each_with_index  do |message, i|%>
     <li><%=message[1]%></li>
   <%end%>
 
-  <%= form_for @new_task do |f|%>
+  <%= form_for @task_list do |f|%>
   <div>
     <%=f.label :name, "Title"%>
     <%=f.text_field :name%>

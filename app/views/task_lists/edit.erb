@@ -1,6 +1,6 @@
 <div id="edit_task_lists">
 
-  <%=form_for @task, url: "/task_lists/#{@task.id}" do |f| %>
+  <%=form_for @task_list, url: "/task_lists/#{@task_list.id}" do |f| %>
   <div>
     <%=f.label :name, "Title"%>
     <%=f.text_field :name%>

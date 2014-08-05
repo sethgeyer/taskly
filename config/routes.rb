@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   post "/task_lists" => "task_lists#create"
   get "/task_lists/:id/edit", to: "task_lists#edit"
   patch "/task_lists/:id", to: "task_lists#update"
+
+  get "/tasks/new/:id", to: "tasks#new"
+  post "/tasks", to: "tasks#create"
 end

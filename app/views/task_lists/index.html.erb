@@ -1,14 +1,18 @@
 <div id="index_task_lists">
 
-<h1>My Lists</h1>
-<%=link_to "Create Task List", "/task_lists/new"%>
+  <h1>My Lists</h1>
+    <%=link_to "Create Task List", "/task_lists/new"%>
 
-<% @task_lists.each do |task_list| %>
+   <% @task_lists.each do |task_list| %>
 
-  <section class="task-list">
-    <h1><%= task_list.name %></h1>
-    <%= link_to "Edit", "/task_lists/#{task_list.id}/edit"%>
-  </section>
+      <section class="task-list">
+        <h1><%= task_list.name %></h1>
+        <%= link_to "Edit", "/task_lists/#{task_list.id}/edit"%>
+        <%= link_to "New Task", "/tasks/new/#{task_list.id}"%>
+        <%task_list.tasks.each do |task|%>
+          <li><%=task.description%> - <%= task.due_date%> </li>
+        <%end%>
+      </section>
 
-<% end %>
+    <% end %>
 </div>
