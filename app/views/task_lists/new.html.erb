@@ -4,7 +4,7 @@
     <li><%=message[1]%></li>
   <%end%>
 
-  <%= form_for @new_task, url: "/task_lists" do |f|%>
+  <%= form_for @new_task do |f|%>
   <div>
     <%=f.label :name, "Title"%>
     <%=f.text_field :name%>

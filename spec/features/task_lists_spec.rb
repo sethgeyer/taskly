@@ -41,14 +41,17 @@ feature 'Task lists' do
     expect(page).to have_content("Your task list could not be created")
   end
 
-
-#   As a user
-#   Given I'm logged in
-# When I am adding a task list
-# And I don't fill in the title field
-#   And I press "Create Task List"
-#   Then I should see a message that reads "Your task list could not be created" (in maroon)
-
+  scenario "User can edit an existing task_list" do
+    create_user email: "user@example.com"
+    TaskList.create!(name: "Work List")
+    login_user
+    click_on "Edit"
+    expect(page).to have_css("#edit_task_lists")
+    fill_in "Title", with: "Work Things"
+    click_on "Edit Task List"
+    expect(page).to have_css("#index_task_lists")
+    expect(page).to have_content("Work Things")
+  end
 
 
 end
