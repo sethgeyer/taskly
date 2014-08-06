@@ -4,6 +4,10 @@ class TaskListsController < ApplicationController
     @task_lists = TaskList.order(:name)
   end
 
+  def show
+    @task_list = TaskList.find(params[:id])
+  end
+
   def new
     @task_list = TaskList.new
   end
@@ -37,3 +41,9 @@ class TaskListsController < ApplicationController
   end
 
 end
+
+
+# As a user
+# Given that I'm logged in
+# When I click on the title of a task list
+# Then I only see the tasks for that task list

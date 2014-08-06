@@ -1,0 +1,17 @@
+<div id="show_task_lists">
+
+  <h1><%= @task_list.name%></h1>
+
+      <%@task_list.tasks.each do |task|%>
+        <li>
+          <%=task.description%> - <%=(task.due_date - Date.today).to_i%> days
+          <%=form_for [task_list, task], method:"DELETE" do |f|%>
+            <%=f.submit "Delete"%>
+          <%end%>
+        </li>
+      <%end%>
+    </section>
+
+
+
+</div>

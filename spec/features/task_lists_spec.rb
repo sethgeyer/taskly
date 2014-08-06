@@ -62,5 +62,16 @@ feature 'Task lists' do
     expect(page).to have_content("Work List")
   end
 
+  scenario "User can see the show page from a link on the index page" do
+    create_user email: "user@example.com"
+    TaskList.create!(name: "Work List")
+    TaskList.create!(name: "Household Chores")
+    login_user
+    click_on "Work List"
+    expect(page).to have_css("#show_task_lists")
+    expect(page).to have_content("Work List")
+    expect(page).not_to have_content("Household Chores")
+  end
+
 
 end

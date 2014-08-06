@@ -29,10 +29,3 @@ class TasksController < ApplicationController
   end
 
 end
-
-
-# As a user
-# Given that I'm logged in
-# When I click the "Delete" link next to a task
-# Then I see a flash message that reads "Task was deleted successfully!"
-# And I should no longer see that task
