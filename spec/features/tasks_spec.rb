@@ -36,6 +36,25 @@ feature "tasks" do
   end
 
 
+  scenario "user can delete a task" do
+    create_user email: "user@example.com"
+    TaskList.create!(name: "Work List")
+    id = TaskList.first.id
+    login_user
+    visit "/task_lists/#{id}/tasks/new"
+
+    fill_in "Description", with: "This is my subtask"
+    select "2014", from: "due_date_year"
+    select "August", from: "due_date_month"
+    select "5", from: "due_date_day"
+
+    click_on "Create Task"
+    click_on "Delete"
+    expect(page).not_to have_content("This is my subtask")
+    expect(page).to have_content("Task was deleted successfully!")
+  end
+
+
 
 
 
