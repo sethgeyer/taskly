@@ -16,7 +16,7 @@ class TasksController < ApplicationController
       redirect_to "/"
     else
       @task_list = TaskList.find(params[:task][:task_list_id])
-      flash[:notice] = "Your task could not be created"
+      # flash[:notice] = "Your task could not be created"
       render :new
     end
 
@@ -24,13 +24,9 @@ class TasksController < ApplicationController
 
 end
 
-# Each task should have the due date represented in relative time
-
-
 
 # As a user
-# When I am adding a task
-# And I don't fill in the description field
-# And I press "Create Task"
-# Then I should see a message that reads "Your task could not be created" (in maroon)
-# And the label for the description field should be maroon.
+# Given that I'm logged in
+# When I click the "Delete" link next to a task
+# Then I see a flash message that reads "Task was deleted successfully!"
+# And I should no longer see that task
