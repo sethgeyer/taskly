@@ -10,7 +10,7 @@
         <%= link_to "Edit", "/task_lists/#{task_list.id}/edit"%>
         <%= link_to "New Task", "/tasks/new/#{task_list.id}"%>
         <%task_list.tasks.each do |task|%>
-          <li><%=task.description%> - <%= task.due_date%> </li>
+          <li><%=task.description%> - <%=(task.due_date - Date.today).to_i%> days </li>
         <%end%>
       </section>
 
