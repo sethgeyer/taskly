@@ -6,9 +6,9 @@
       <p class="errors">Your task could not be created</p>
     <%end%>
 
-    <%= form_for @task do |f|%>
+    <%= form_for [@task_list, @task] do |f|%>
     <div>
-      <%=f.hidden_field :task_list_id%>
+      < %=f.hidden_field :task_list_id%>
     </div>
 
 

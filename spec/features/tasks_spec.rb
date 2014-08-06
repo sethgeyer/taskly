@@ -7,7 +7,7 @@ feature "tasks" do
     TaskList.create!(name: "Work List")
     id = TaskList.first.id
     login_user
-    visit "/tasks/new/#{id}"
+    visit "/task_lists/#{id}/tasks/new"
     fill_in "Description", with: "This is my subtask"
     select "2014", from: "due_date_year"
     select "August", from: "due_date_month"
@@ -25,12 +25,11 @@ feature "tasks" do
     TaskList.create!(name: "Work List")
     id = TaskList.first.id
     login_user
-    visit "/tasks/new/#{id}"
+    visit "/task_lists/#{id}/tasks/new"
     fill_in "Description", with: ""
     select "2014", from: "due_date_year"
     select "August", from: "due_date_month"
     select "5", from: "due_date_day"
-
     click_on "Create Task"
     expect(page).to have_css("#new_tasks")
     expect(page).to have_content("Your task could not be created")
