@@ -22,8 +22,14 @@
 </header>
 <main>
   <div class="container">
-    <%=flash[:notice] if flash[:notice]%>
-    <%= yield %>
+    <div class="flashy">
+
+      <%if flash[:notice]%>
+        <button>x</button>
+        <%=flash[:notice]%>
+      <%end%>
+        </div>
+      <%= yield %>
   </div>
 </main>
 </body>

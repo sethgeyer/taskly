@@ -7,16 +7,6 @@
 
 $(document).ready(function() {
 
-//var taskLists = $('.task-list');
-//
-//  taskLists.click( function() {
-//    $(this).find('.task').toggle();
-//    $(this).siblings('.task-list').find('.task').hide();
-//
-//  })
-
-
-
   var button = $('.task-list > button');
 
   button.click( function() {
@@ -28,14 +18,20 @@ $(document).ready(function() {
     }
     else {
     $(this).text('+');
-
-    };
+    }
     section.siblings('.task-list').find('.task').hide();
     section.siblings('.task-list').find('button').text('+');
-  })
+  });
 
 
 
+
+  $(".flashy").fadeOut(5000);
+
+  var button = $(".flashy > button")
+  button.click(function() {
+    $(".flashy").toggle();
+  });
 
 
 
