@@ -41,9 +41,3 @@ class TaskListsController < ApplicationController
   end
 
 end
-
-
-# As a user
-# Given that I'm logged in
-# When I click on the title of a task list
-# Then I only see the tasks for that task list

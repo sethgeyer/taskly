@@ -78,11 +78,36 @@ main {
   }
 }
 
+.show {
+  background-color: lightblue;
+
+}
+
+.indicator {
+
+}
+
+.task {
+  display:none
+}
+
 .task-list {
+
   padding: 1em;
   & + & {
     border-top: 1px solid darkblue;
   }
+
+  .tl-item {
+    display:inline;
+  }
+
+  .task-item {
+    display:inline;
+  }
+
+
+
 
   h1 {
     font-size: 110%;

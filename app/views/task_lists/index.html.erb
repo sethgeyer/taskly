@@ -6,16 +6,18 @@
    <% @task_lists.each do |task_list| %>
 
       <section class="task-list">
-        <h1><%= link_to task_list.name, task_list_path(task_list) %></h1>
-        <%= link_to "Edit", edit_task_list_path(task_list)%>
-        <%= link_to "New Task", new_task_list_task_path(task_list)%>
+        <button class="tl-item">+</button>
+        <h1 class="tl-item"><%= task_list.name%></h1>
+        <div class="tl-item"><%= link_to "Edit", edit_task_list_path(task_list)%></div>
+        <div class="tl-item"><%= link_to "New Task", new_task_list_task_path(task_list)%></div>
+
         <%task_list.tasks.each do |task|%>
-          <li>
+          <div class="task"  >
             <%=task.description%> - <%=(task.due_date - Date.today).to_i%> days
             <%=form_for [task_list, task], method:"DELETE" do |f|%>
               <%=f.submit "Delete"%>
             <%end%>
-          </li>
+          </div>
         <%end%>
       </section>
 
