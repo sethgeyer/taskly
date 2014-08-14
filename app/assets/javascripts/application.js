@@ -33,7 +33,26 @@ $(document).ready(function() {
     $(".flashy").toggle();
   });
 
+// todays tasks are highlighted in orange
 
+  var tasks = $(".task")
+    tasks.each( function() {
+      $self = $(this);
+      var dateAttribute = $self.attr('data-attribute-date');
+      if ( dateAttribute == 0)  {
+        var assignedClass = 'due-today'
+        $self.addClass('due-today');
+      }
+      else if (dateAttribute == -1) {
+        var assignedClass = 'overdue'
+      };
+      $self.addClass(assignedClass);
+    });
+
+
+//  embed a data-anything-num as an attribute in the element associated w
+//  the class of task.  then call $(this).attr(data-anything-num) to get the value
+//  you may need to call parseInt to turn the string into an integer
 
 
 

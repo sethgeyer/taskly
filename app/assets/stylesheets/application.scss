@@ -78,17 +78,28 @@ main {
   }
 }
 
-.show {
-  background-color: lightblue;
 
+.due-today {
+  background-color: orange;
 }
 
-.indicator {
+.overdue {
+  background-color: red;
+}
 
+.delete_button {
+  border: 1px solid grey;
+  background: lightgray;
+  padding: 1px;
+  display:inline;
+  float:right;
+  color:black;
 }
 
 .task {
-  display:none
+  display:none;
+  border: 1px solid grey;
+  padding:10px;
 }
 
 .task-list {

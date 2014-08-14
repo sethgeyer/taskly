@@ -12,13 +12,31 @@
         <div class="tl-item"><%= link_to "New Task", new_task_list_task_path(task_list)%></div>
 
         <%task_list.tasks.each do |task|%>
-          <div class="task"  >
+          <div class="task" data-attribute-date="<%=(task.due_date - Date.today).to_i%>">
             <%=task.description%> - <%=(task.due_date - Date.today).to_i%> days
-            <%=form_for [task_list, task], method:"DELETE" do |f|%>
-              <%=f.submit "Delete"%>
-            <%end%>
+            <%= link_to "Delete", [task_list, task],{ :method => :delete, :confirm => "Really?", :class => "delete_button"} %>
           </div>
         <%end%>
+
+
+
+
+
+        <!--< %task_list.tasks.each do |task|%>-->
+          <!--<div class="task"  >-->
+            <!--<div class="description">-->
+              <!--< %=task.description%> --->
+            <!--</div>-->
+            <!--<div class="due-date">-->
+             <!--<p>< %=(task.due_date - Date.today).to_i%> days</p>-->
+            <!--</div>-->
+              <!--< %= link_to "Delete", [task_list, task],{ :method => :delete, :confirm => "Really?", :class => "delete_button"} %>-->
+          <!--</div>-->
+        <!--< %end%>-->
+
+
+
+
       </section>
 
     <% end %>
